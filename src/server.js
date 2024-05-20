@@ -1,16 +1,16 @@
 require('express-async-errors')
 
-const database  = require('./database/sqlite')
+const migrationRun  = require('./database/sqlite/migrations')
 const express = require('express')
 const router = require('./routes')
 const AppError = require('./utils/AppError')
 
 const app = express()
 
+migrationRun()
+
 app.use(express.json()) 
 app.use(router)
-
-database()
 
 app.use((error, require, response, next)=>{
     if(error instanceof AppError){
@@ -24,6 +24,6 @@ app.use((error, require, response, next)=>{
 })
 
 
-const PORT = 8080;
+const PORT = 3000;
 
 app.listen(PORT, ()=> console.log(`Servidor starting in PORT ${PORT}`))
