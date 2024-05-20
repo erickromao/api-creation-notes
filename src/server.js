@@ -15,12 +15,12 @@ app.use(router)
 app.use((error, require, response, next)=>{
     if(error instanceof AppError){
         return response.status(error.statusCode).json({
-            message: "O correu um erro.",
-            status: error.message
+            status: error.statusCode,
+            message: error.message
         })
     }
     console.error(error)
-    return response.status(500).send("Erro on internal Server")
+    return response.status(500).send("Erro in internal Server")
 })
 
 
