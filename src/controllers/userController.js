@@ -1,6 +1,7 @@
 const AppError = require('../utils/AppError')
 const sqlConnection = require('../database/sqlite')
 const { hash, compare } = require('bcryptjs')
+const sqliteConnection = require('../database/sqlite')
 
 class userController {
 
@@ -19,6 +20,19 @@ class userController {
         await database.run('INSERT INTO users(name, email, password) VALUES(?, ?, ?) ', [name, email, hashedPassword])
 
         response.status(200).json({ message: "Cadastro feito com sucesso!" })
+    }
+
+    async read(request, response){
+        const { id } = request.params
+        const database = await sqliteConnection()
+
+        const user = await database.get('SELECT * FROM users WHERE id = (?)', [id])
+
+        if(!user){
+            throw new AppError('Usuário não encontrado!')
+        }
+
+        response.json({name: user.name, email:user.email})
     }
 
     async update(request, response) {
@@ -64,6 +78,21 @@ class userController {
 
         response.status(200).json({ message: "Usuário atualizado com sucesso!" })
     }
-}
 
+    async delete(request, response){
+        const { id } = request.params
+        const database = await sqliteConnection()
+        
+        const checkUserId = await database.get('SELECT * FROM users WHERE id = (?)',[id])
+
+        if(!checkUserId){
+            throw new AppError('Usuário não encontrado.')
+        }
+
+        await database.run('DELETE FROM users WHERE id = (?)', [id])
+
+        response.json({message:"Usuário deletado com sucesso."})
+    }
+}
+    
 module.exports = userController
