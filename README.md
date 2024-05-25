@@ -2,6 +2,11 @@
 
 Este projeto é uma API backend que possibilita a criação de usuários, bem como a criação e gerenciamento de anotações por esses usuários. As anotações podem ter tags e links, e os usuários podem pesquisar suas notas por tags, pelo título completo ou por qualquer palavra que conste no título.
 
+![Untitled](https://github.com/erickromao/api-creation-users-CRUD/assets/123843702/5a1d5250-c7e3-44ac-ad1f-0f47dba2c237)
+
+[API-NotesAndTags-2024 (1).pdf](https://github.com/erickromao/api-creation-users-CRUD/files/15445246/API-NotesAndTags-2024.1.pdf)
+
+
 ## Funcionalidades
 
 - **Criar Usuário**: Permite a criação de novos usuários.
