@@ -19,7 +19,12 @@ class userController {
 
         await database.run('INSERT INTO users(name, email, password) VALUES(?, ?, ?) ', [name, email, hashedPassword])
 
-        response.status(200).json({ message: "Cadastro feito com sucesso!" })
+        response.status(200).json({ message: "Cadastro feito com sucesso!",
+            data:{
+                name:name,
+                email:email
+            }
+         })
     }
 
     async read(request, response){
