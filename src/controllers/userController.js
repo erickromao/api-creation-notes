@@ -2,6 +2,7 @@ const AppError = require('../utils/AppError')
 const sqlConnection = require('../database/sqlite')
 const { hash, compare } = require('bcryptjs')
 const sqliteConnection = require('../database/sqlite')
+const knex = require('../database/knex')
 
 class userController {
 
@@ -89,13 +90,16 @@ class userController {
         const database = await sqliteConnection()
         
         const checkUserId = await database.get('SELECT * FROM users WHERE id = (?)',[id])
-
+        
         if(!checkUserId){
             throw new AppError('Usuário não encontrado.')
         }
-
+        const checkUserNote = await knex("notes").where({user_id:id})
+        if(checkUserNote){
+           await knex("notes").where({user_id:id}).delete()
+        }
         await database.run('DELETE FROM users WHERE id = (?)', [id])
-
+       
         response.json({message:"Usuário deletado com sucesso."})
     }
 }

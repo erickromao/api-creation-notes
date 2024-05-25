@@ -1,10 +1,17 @@
 const knex = require("../database/knex")
+const AppError = require("../utils/AppError")
 
 class notesController {
 
     async create(request, response) {
         const { title, description, tags, links } = request.body
         const { user_id } = request.params
+
+        // const [checkUser_id] = await knex('notes').where({user_id})
+
+        // if(!checkUser_id){
+        //     throw new AppError('Usuário não encontrado!')
+        // }
 
         const [note_id] = await knex("notes").insert({
             title,
