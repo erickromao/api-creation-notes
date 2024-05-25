@@ -1,5 +1,51 @@
-<h1>API Criação de Notas</h1>
-<h3>Outras informações:</h3><br/>
-![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/r0mao1/)
-![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/erick.romao/)<br/>
+# Projeto de Criação e Gerenciamento de Notas
 
+Este projeto é uma API backend que possibilita a criação de usuários, bem como a criação e gerenciamento de anotações por esses usuários. As anotações podem ter tags e links, e os usuários podem pesquisar suas notas por tags, pelo título completo ou por qualquer palavra que conste no título.
+
+## Funcionalidades
+
+- **Criar Usuário**: Permite a criação de novos usuários.
+- **Listar Usuários**: Listar informações de um usuário cadastrado.
+- **Atualizar Usuário**: Atualiza os dados de um usuário existente.
+- **Deletar Usuário**: Remove um usuário do sistema.
+- **Criar Nota**: Permite a criação de novas notas com título, conteúdo, tags e links.
+- **Listar Todas as Notas**: Recupera uma lista de todas as notas de um usuário.
+- **Listar Uma Nota**: Retorna uma nota específica por ID.
+- **Deletar Nota**: Remove uma nota do sistema.
+- **Pesquisar Notas**: Permite a busca de notas por tags, título ou qualquer palavra no título.
+- **Pesquisar Tags**: Permite buscar todas as tags cadastradas de um usuário.
+
+## Tecnologias Utilizadas
+
+- **JavaScript**: Linguagem de programação usada para desenvolver a aplicação.
+- **Node.js**: Ambiente de execução JavaScript server-side.
+- **Express**: Framework web para Node.js.
+- **SQLite**: Banco de dados SQL leve para armazenamento de dados.
+- **Knex.js**: Query builder para SQL usado para interagir com o banco de dados.
+- **Git**: Sistema de controle de versão.
+- **GitHub**: Plataforma de hospedagem de código-fonte e controle de versão.
+
+## Estrutura do Banco de Dados
+
+- A tabela **"users"** foi criada utilizando SQL puro para fins de prática.
+- As tabelas **"notes"**, **"tags"** e **"links"** foram criadas utilizando Knex.js.
+
+## Instalação
+
+Para instalar e rodar o projeto, siga os passos abaixo:
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/seu-repositorio.git
+
+# Navegue até o diretório do projeto
+cd seu-repositorio
+
+# Instale as dependências
+npm install
+
+# Rode as migrações do banco de dados
+npx knex migrate:latest
+
+# Rode a aplicação
+npm start
