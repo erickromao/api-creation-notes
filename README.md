@@ -6,7 +6,7 @@ Este projeto é uma API backend que possibilita a criação de usuários, bem co
 ![Untitled](https://github.com/erickromao/api-creation-users-CRUD/assets/123843702/5a1d5250-c7e3-44ac-ad1f-0f47dba2c237)
 
 ## Documentação do projeto
-[Link da documentação do projeto](https://github.com/erickromao/api-creation-users-CRUD/files/15445246/API-NotesAndTags-2024.1.pdf)</br>
+[Link da documentação do projeto](https://github.com/erickromao/api-creation-users-CRUD/files/15445246/API-NotesAndTags-2024.1.pdf)</br></br>
 
 ## Funcionalidades
 
